@@ -11,9 +11,11 @@ assignees: ''
 
 Use this issue to create a general request for the Synergy project.
 
-Information required:
+Please Mention the Information required,so that we can help you with your request.
 
-Please describe the about the request and the reason for requesting the adminstrator permissions, so that we can help you with your request.
+1.User-Account
+2.Repository Name (or) Link
+3.The reason for requesting the adminstrator permissions.
 
 **To Reproduce**
 Steps to reproduce the behavior:
