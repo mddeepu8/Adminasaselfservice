@@ -1,7 +1,7 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: Issue Template for Administrator Permissions
+name: Issue Template
+about: Issue Template for Administrator Permissions
+title: Template for Administrator Permissions
 labels: ''
 assignees: ''
 
