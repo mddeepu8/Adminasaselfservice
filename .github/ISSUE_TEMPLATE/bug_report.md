@@ -1,14 +1,16 @@
 ---
-name: Issue Template
+name: Template Request
 about: Issue Template for Administrator Permissions
-title: Template for Administrator Permissions
-labels: ''
+title: Request Template for Administrator Permissions
+labels: 'Request'
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Describe**
+
+Use this issue to create a general request for the Synergy project.
+Please describe the about the request and the reason for requesting the adminstartor permissions, so we can help you with your request.
 
 **To Reproduce**
 Steps to reproduce the behavior:
