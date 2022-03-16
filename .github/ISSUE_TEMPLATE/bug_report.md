@@ -10,7 +10,10 @@ assignees: ''
 **Describe**
 
 Use this issue to create a general request for the Synergy project.
-Please describe the about the request and the reason for requesting the adminstartor permissions, so we can help you with your request.
+
+Information required:
+
+Please describe the about the request and the reason for requesting the adminstrator permissions, so that we can help you with your request.
 
 **To Reproduce**
 Steps to reproduce the behavior:
