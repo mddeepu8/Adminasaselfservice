@@ -13,7 +13,7 @@ on:
 env:
   check_build_status: build,test
   Admin: Chandrasekhar674
-  Writer: Chandrasekhar674
+  Writer: SynergyDevops
   TOKEN: ${{ Test.TOKEN }}
   reponame: Adminasaselfservice
 
