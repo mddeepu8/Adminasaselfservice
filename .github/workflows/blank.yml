@@ -31,6 +31,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - uses: actions/labeler@v2
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Getting a reponame from issue
       if: contains(github.event.issue.labels.*.name, 'policies')
       run: | 
