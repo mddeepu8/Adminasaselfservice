@@ -1,47 +1,28 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Test Repository 
-
-# Controls when the workflow will run
+name: Librarian
 on:
-  push:
-      branches:
-        - Main
-  pull_request:
-      branches: [ main ]
-  # Triggers the workflow on push or pull request events but only for the main branch
-  issues:
+  issue_comment:
     types:
-      -opened
-      -edited
-      -closed
-env:
-  check_build_status: build,test
-  Admin: Chandrasekhar674
-  Writer: SynergyDevops
-  TOKEN: ${{ Test.TOKEN }}
-  reponame: Adminasaselfservice
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+      - created
+      - edited
+      - deleted
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  librarian:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    if: github.event.issue_comment.user.login != 'github-actions[bot]'
     steps:
-    - uses: actions/labeler@v2
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Getting a reponame from issue
-      if: contains(github.event.issue.labels.*.name, 'policies')
-      run: | 
-         echo "Testing Issue body"
-         echo "${{ github.event.issue.number }}"
-         echo "reponame=$(curl \
-         -H "Authorization: token ${{ Test.TOKEN }}" \
-         -H "Accept: application/vnd.github.v3+json" \
-         https://api.github.com/repos/mddeepu8/Adminasaselfservice/issues/"${{ github.event.issue.number }}" | grep body | grep -oP '(?<=reponame:)\D+\w+' )" >> $Adminasaselfservice
-    
-          
+      - uses: git-things-done/librarian@v1
+        id: labels
+        with:
+          today: ${{ github.event.issue.number }}
+
+      - uses: KeisukeYamashita/attach-labels@v1
+        if: ${{ steps.labels.outputs.append }}
+        with:
+          labels: ${{ steps.labels.outputs.append }}
+          number: ${{ github.event.issue.number }}
+
+      - uses: peter-murray/remove-labels-action@v1
+        if: ${{ steps.labels.outputs.remove }}
+        with:
+          labels: ${{ steps.labels.outputs.remove }}
+          issue_number: ${{ github.event.issue.number }}
