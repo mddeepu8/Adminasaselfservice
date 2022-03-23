@@ -8,7 +8,7 @@ on:
 env: 
   dismiss_pull_request_Team: Synergy-Admins
   check_build_status: build,test
-  Admin: Chandrasekhar674
+  Admin: mddeepu8
   Writer: SynergyDevops
   TOKEN: ${{ secrets.TEST }}
   reponame: GITHUB_ENV
