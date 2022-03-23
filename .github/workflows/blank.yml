@@ -19,7 +19,7 @@ jobs:
     - name: Getting a reponame from issue
       if: contains(github.event.issue.labels.*.name, 'policies')
       run: | 
-         echo "Testing Issue body"
+         echo "Testing Issue"
          echo "${{ github.event.issue.number }}"
          echo "reponame=$(curl \
          -H "Authorization: token ${{ env.TEST }}" \
