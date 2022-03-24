@@ -3,6 +3,7 @@ name: Check User Permission
 on:
   issues:
     types: [opened, edited]
+    
 
 jobs:
   check:
@@ -23,6 +24,4 @@ jobs:
         if: steps.check-user-permission =='read'
         uses: "lannonbr/repo-permission-check-action@2.0.0"
         with:
-          permission: "admin"
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          permission: read|write
