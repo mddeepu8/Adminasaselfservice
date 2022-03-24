@@ -19,3 +19,10 @@ jobs:
         with:
           actions: 'close-issue'
           issue-number: ${{ github.event.issue.number }}
+      - name: Adding User as Admin
+        if: steps.check-user-permission =='read'
+        uses: "lannonbr/repo-permission-check-action@2.0.0"
+        with:
+          permission: "admin"
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
