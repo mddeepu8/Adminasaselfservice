@@ -1,29 +1,21 @@
-name: Repository
+name: Check User Permission
+
 on:
   issues:
-    types:
-      - opened
-      - edited
-      - deleted
-env: 
-  dismiss_pull_request_Team: Synergy-Admins
-  check_build_status: build,test
-  Admin: mddeepu8
-  Writer: SynergyDevops
-  TOKEN: ${{ secrets.TEST }}
-  reponame: GITHUB_ENV
+    types: [opened, edited]
+
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     steps:
-    - name: Getting a reponame from issue
-      if: contains(github.event.issue.labels.*.name, 'policies')
-      run: | 
-         echo "Testing Issue"
-         echo "${{ github.event.issue.number }}"
-         echo "reponame=$(curl \
-         -H "Authorization: token ${{ env.TEST }}" \
-         -H "Accept: application/vnd.github.v3+json" \
-         https://api.github.com/repos/Adminasaselfservice/issues/"${{ github.event.issue.number }}" | grep body | grep -oP '(?<=reponame:)\D+\w+' )" >> $GITHUB_ENV
-    
+      - uses: actions-cool/check-user-permission@main
+        id: checkUser
+        with:
+          require: 'write'
 
+      - name: close
+        if: steps.checkUser.outputs.check-result == 'false'
+        uses: actions-cool/issues-helper@v2.1.2
+        with:
+          actions: 'close-issue'
+          issue-number: ${{ github.event.issue.number }}
