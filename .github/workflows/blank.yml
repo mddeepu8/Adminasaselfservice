@@ -20,8 +20,15 @@ jobs:
         with:
           actions: 'close-issue'
           issue-number: ${{ github.event.issue.number }}
-      - name: Adding User as Admin
-        if: steps.check-user-permission =='read'
+      - name: repo-manager
+        uses: mattsb42/repo-manager@v1.1.0
+        with:
+           github-token: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+           github-repository: Adminasaselfservice
+           debug: true
+      - name: "Check if user has write access"
         uses: "lannonbr/repo-permission-check-action@2.0.0"
         with:
-          permission: read|write
+          permission: "write"
+
+
