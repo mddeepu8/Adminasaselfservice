@@ -19,8 +19,20 @@ jobs:
         with:
           actions: 'close-issue'
           issue-number: ${{ github.event.issue.number }}
-      - name: Adding User as Admin
-        uses: "lannonbr/repo-permission-check-action@2.0.0"
-        if: steps.check-user-permission =='read'
+      - name: Get User Input
+        id: get_input
+        uses: ActionsDesk/parse-issue@master
         with:
-          actions: read|write|admin
+          extract_email: '<p>Email of Requester:\s*(.*)</p>'
+      - name: Invite User
+        id: get-issue-data
+        uses: ActionsDesk/invite_user@release/v1
+        with:
+          CONFIG_PATH: ".github/config.json"
+          USER_ROLE: "direct_member"
+          EMAIL: ${{ steps.get_input.outputs.['email']}}
+      - name: Comment on Issue
+        uses: ActionsDesk/add-comment-action@v1
+        with:
+          message: ${{ steps.get-issue-data.message }}
+          status: ${{ steps.get-issue-data.stepStatus }}
