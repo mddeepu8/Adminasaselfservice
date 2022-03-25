@@ -23,7 +23,7 @@ jobs:
       - name: repo-manager
         uses: mattsb42/repo-manager@v1.1.0
         with:
-           github-token: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+           github-token: ${{ secrets.TEST }}
            github-repository: Adminasaselfservice
            debug: true
       - name: "Check if user has write access"
