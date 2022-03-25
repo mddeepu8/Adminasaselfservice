@@ -13,15 +13,14 @@ jobs:
         id: checkUser
         with:
           require: 'write'
-
       - name: close
-        if: steps.checkUser.outputs.check-result == 'false'
         uses: actions-cool/issues-helper@v2.1.2
+        if: steps.checkUser.outputs.check-result == 'false'
         with:
           actions: 'close-issue'
           issue-number: ${{ github.event.issue.number }}
       - name: Adding User as Admin
-        if: steps.check-user-permission =='read'
         uses: "lannonbr/repo-permission-check-action@2.0.0"
+        if: steps.check-user-permission =='read'
         with:
           actions: read|write|admin
