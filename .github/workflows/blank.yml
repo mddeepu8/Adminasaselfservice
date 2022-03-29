@@ -1,13 +1,17 @@
-name: Add a new GitHub issue to the specified project column
-on: issues
+name: Add bugs to bugs project
+
+on:
+  issues:
+    types: [opened,edited]
+
 jobs:
-  add-new-issues-to-project-column:
+  add-to-project:
+    name: Add issue to project
     runs-on: ubuntu-latest
     steps:
-    - name: add-new-issues-to-organization-based-project-column
-      uses: docker://takanabe/github-actions-automate-projects:v0.0.1
-      if: github.event_name == 'issues' && github.event.action == 'opened'
-      env:
-        GITHUB_TOKEN: ${{ secrets.TEST }}
-        GITHUB_PROJECT_URL: https://github.com/mddeepu8/securegh-pages
-        GITHUB_PROJECT_COLUMN_NAME: To Do
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/SynergyDevops/projects/1
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: bug, new
+          label-operator: AND
