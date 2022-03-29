@@ -9,5 +9,5 @@ jobs:
       if: github.event_name == 'issues' && github.event.action == 'opened'
       env:
         GITHUB_TOKEN: ${{ secrets.TEST }}
-        GITHUB_PROJECT_URL: https://github.com/mddeepu8/securegh-pages.git
+        GITHUB_PROJECT_URL: https://github.com/mddeepu8/securegh-pages
         GITHUB_PROJECT_COLUMN_NAME: To Do
