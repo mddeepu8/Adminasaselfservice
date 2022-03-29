@@ -1,17 +1,15 @@
-name: Add bugs to bugs project
-
+name: Check User Permission
 on:
   issues:
-    types: [opened,edited]
-
+    types: [opened, edited]
 jobs:
-  add-to-project:
-    name: Add issue to project
+  check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@main
+      - uses: actions-cool/check-user-permission@main
+        id: checkUser
         with:
-          project-url: https://github.com/orgs/SynergyDevops/projects/1
-          github-token: ${{ secrets.TEST }}
-          labeled: Request
-          label-operator: AND
+          require: 'write'
+      - name: Remove admin Permission
+        if: steps.check-user-permission =='admin'
+          change_permission:read
