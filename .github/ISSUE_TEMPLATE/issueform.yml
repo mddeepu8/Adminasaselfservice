@@ -2,7 +2,7 @@ name: Template Request
 description: Request Template for Administrator Permissions
 title: "[Issue Template for Administrator Permissions]: "
 labels: 'Request'
-assignees: ' '
+assignees: ''
 body:
   - type: markdown
     attributes:
