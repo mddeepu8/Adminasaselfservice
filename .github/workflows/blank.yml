@@ -13,5 +13,5 @@ jobs:
         with:
           project-url: https://github.com/orgs/SynergyDevops/projects/1
           github-token: ${{ secrets.TEST }}
-          labeled: bug, new
+          labeled: Request
           label-operator: AND
