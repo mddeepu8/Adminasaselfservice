@@ -39,8 +39,6 @@ body:
   - type: dropdown
     id: browsers
     attributes:
-      validations:
-      required: true
       label: Repositories
       multiple: true
       options:
