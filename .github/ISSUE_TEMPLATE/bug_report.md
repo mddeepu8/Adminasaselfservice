@@ -1,9 +1,8 @@
-name: Bug Report
-description: File a bug report
-title: "[Bug]: "
-labels: ["bug", "triage"]
-assignees:
-  - octocat
+name: Template Request
+about: Issue Template for Administrator Permissions
+title: Request Template for Administrator Permissions
+labels: ["bug", "triage", "Request"]
+assignees: ' '
 body:
   - type: markdown
     attributes:
