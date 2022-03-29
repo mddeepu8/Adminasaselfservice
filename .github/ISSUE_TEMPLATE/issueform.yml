@@ -22,7 +22,7 @@ body:
       label: Information Required
       description: Reason to need Admin Permssion
       placeholder: Tell us what you see!
-      value: "User Account id and Repository Name or Url"
+      value: "1.User Account id 2. Repository Name or Url"
     validations:
       required: true
   - type: dropdown
