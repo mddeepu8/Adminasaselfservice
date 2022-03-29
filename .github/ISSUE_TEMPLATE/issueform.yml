@@ -20,16 +20,16 @@ body:
     id: what-happened
     attributes:
       label: Information Required
-      description: Reason to need Admin Permssion
+      description: Reason to need Permission
       placeholder: Tell us what you see!
-      value: "1.User Account id 2. Repository Name or Url"
+      value: "User Account id"
     validations:
       required: true
   - type: dropdown
     id: version
     attributes:
-      label: Version
-      description: What permissions do you need for the selected Repo?
+      label: Permission
+      description: Which permission do you need for the selected Repository?
       options:
         - Read (Default)
         - Write
@@ -39,7 +39,7 @@ body:
   - type: dropdown
     id: browsers
     attributes:
-      label: Which repo do you need admin access?
+      label: Repositories?
       multiple: true
       options:
         - Admin As a self service
