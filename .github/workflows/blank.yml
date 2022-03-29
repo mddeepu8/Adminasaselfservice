@@ -10,5 +10,3 @@ jobs:
         id: checkUser
         with:
           require: 'write'
-        if: steps.check-user-permission =='admin'
-          change_permission:read
