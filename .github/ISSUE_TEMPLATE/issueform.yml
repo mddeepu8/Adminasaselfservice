@@ -1,8 +1,9 @@
-name: Issue Template
+name: Bug Report
 description: File a bug report
-title: "[Issue Template for Admin Permissions]: "
-labels: ["bug", "triage","Request"]
-assignees: ' '
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees:
+  - octocat
 body:
   - type: markdown
     attributes:
@@ -22,9 +23,7 @@ body:
       label: What happened?
       description: Also tell us, what did you expect to happen?
       placeholder: Tell us what you see!
-      value: "a.User-Account"
-              "b.Repository"
-              "c.Reason"
+      value: "A bug happened!"
     validations:
       required: true
   - type: dropdown
