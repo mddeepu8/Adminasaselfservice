@@ -39,7 +39,9 @@ body:
   - type: dropdown
     id: browsers
     attributes:
-      label: Repositories?
+      validations:
+      required: true
+      label: Repositories
       multiple: true
       options:
         - Admin As a self service
