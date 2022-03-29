@@ -1,22 +1,13 @@
-name: Check User Permission
-
-on:
-  issues:
-    types: [opened, edited]
-    
-
+name: Add a new GitHub issue to the specified project column
+on: issues
 jobs:
-  check:
+  add-new-issues-to-project-column:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/check-user-permission@main
-        id: checkUser
-        with:
-          require: 'write'
-
-      - name: close
-        if: steps.checkUser.outputs.check-result == 'false'
-        uses: actions-cool/issues-helper@v2.1.2
-        with:
-          actions: 'close-issue'
-          issue-number: ${{ github.event.issue.number }}
+    - name: add-new-issues-to-organization-based-project-column
+      uses: docker://takanabe/github-actions-automate-projects:v0.0.1
+      if: github.event_name == 'issues' && github.event.action == 'opened'
+      env:
+        GITHUB_TOKEN: ${{ secrets.TEST }}
+        GITHUB_PROJECT_URL: https://github.com/mddeepu8/securegh-pages.git
+        GITHUB_PROJECT_COLUMN_NAME: To Do
