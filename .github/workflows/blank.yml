@@ -11,5 +11,6 @@ jobs:
         with:
           require: 'write'
       - name: Remove admin Permission
+      - uses: actions-cool/check-user-permission@main
         if: steps.check-user-permission =='admin'
           change_permission:read
