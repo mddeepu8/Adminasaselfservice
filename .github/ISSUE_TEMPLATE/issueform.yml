@@ -17,7 +17,7 @@ body:
     validations:
       required: false
   - type: textarea
-    id: what-happened
+    id: Information Required
     attributes:
       label: Information Required
       description: Also tell us, what did you expect to happen?
