@@ -22,7 +22,9 @@ body:
       label: Information Required
       description: Also tell us, what do you expect to happen?
       placeholder: Tell us what you see!
-      value: "User Account,Repository,Reason to need Admin Permssion"
+      value: "User Account,
+              Repository,
+              Reason to need Admin Permssion"
     validations:
       required: true
   - type: dropdown
