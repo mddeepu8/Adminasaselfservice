@@ -1,10 +1,32 @@
-- name: "Template"
-description: Request Template for Administrator Permissions
+---
+name: Template Request
 about: Issue Template for Administrator Permissions
 title: Request Template for Administrator Permissions
 labels: 'Request'
-assignees: mddeepu8
+assignees: 'mddeepu8'
+
+---
+**Describe**
+
+Use this issue to create a general request for the Synergy project.
+
+Please Mention the Information required,so that we can help you with your request.
+
+1.User-Account
+2.Repository Name (or) Link
+3.The reason for requesting the adminstrator permissions.
+
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
     validations:
       required: false
   - type: textarea
@@ -43,3 +65,4 @@ body:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
+
