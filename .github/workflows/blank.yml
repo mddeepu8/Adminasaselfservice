@@ -16,3 +16,6 @@ jobs:
         run: |
          echo "A user trying to access is permitted"
          echo "An actual permission was '${{ steps.permission.outputs.actual-permission }}'"
+      - name: Run only if user has NOT sufficient permissions
+        if: "! steps.permission.outputs.actual-permission"
+        run: echo "Sorry! Your permissions are insufficient."
