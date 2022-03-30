@@ -9,7 +9,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: lannonbr/repo-permission-check-action@2.0.0
         id: checkUser
         with:
           require: 'write'
