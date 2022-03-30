@@ -1,22 +1,24 @@
 name: Check User Permission
-
 on:
   issues:
     types: [opened, edited]
-    
-
 jobs:
-  check:
+  check_user_permission:
     runs-on: ubuntu-latest
+    name: A job to check user's permission level
     steps:
-      - uses: mddeepu8/Adminasaselfservice@v2
+      # Check for write permission
+      - name: Check user permission
+        id: check
+        uses: scherermichael-oss/action-has-permission@master
         with:
-          github-token: ${{ secrets.TEST }}
-          minimum-permission: admin
-
-      - name: close
-        if: steps.checkUser.outputs.check-result == 'false'
-        uses: actions-cool/issues-helper@v2.1.2
-        with:
-          actions: 'close-issue'
-          issue-number: ${{ github.event.issue.number }}
+          required-permission: admin
+        env:
+          GITHUB_TOKEN: ${{ secrets.TEST }}
+      # Use the output from the `check` step
+      - name: Run only if user has sufficient permissions
+        if: steps.check.outputs.has-permission
+        run: echo "Congratulations! Your permissions to access the repository are sufficient."
+      - name: Run only if user has NOT sufficient permissions
+        if: "! steps.check.outputs.has-permission"
+        run: echo "Sorry! Your permissions are insufficient."
