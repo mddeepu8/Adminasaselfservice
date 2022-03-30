@@ -9,7 +9,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: lannonbr/repo-permission-check-action@2.0.0
+      - uses: philips-internal/permission-check-action@v2
         id: checkUser
         with:
           require: 'write'
