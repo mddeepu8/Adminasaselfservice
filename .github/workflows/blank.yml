@@ -9,10 +9,10 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: philips-internal/permission-check-action@v2
-        id: checkUser
+      - uses: mddeepu8/Adminasaselfservice@v2
         with:
-          require: 'write'
+          github-token: ${{ secrets.TEST }}
+          minimum-permission: admin
 
       - name: close
         if: steps.checkUser.outputs.check-result == 'false'
