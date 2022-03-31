@@ -48,3 +48,5 @@ jobs:
           required_approving_review_count: 2
           restrictions: |
             null
+        env:
+            GITHUB_TOKEN: ${{ secrets.TEST }}
