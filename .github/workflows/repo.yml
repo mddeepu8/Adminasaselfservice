@@ -6,7 +6,6 @@ on:
       - main
   schedule:
     - cron: 0 0 * * *
-
 jobs:
   repo_setup:
     runs-on: ubuntu-latest
@@ -25,6 +24,7 @@ jobs:
           DELETE_HEAD: 'false'
           BRANCHES_PROTECTION_NAME: |
             'main'
+            'dev'
           BRANCH_PROTECTION_REQUIRED_REVIEWERS: '1'
           BRANCH_PROTECTION_DISMISS: 'true'
           BRANCH_PROTECTION_CODE_OWNERS: 'true'
