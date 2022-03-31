@@ -1,0 +1,32 @@
+name: Repo Setup
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  repo_setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo Setup
+        uses: seblaporte/github-action-repo-settings-sync@v1.0.0
+        with:
+          REPOSITORIES: |
+            mddeepu8/Adminasaselfservice
+          ALLOW_ISSUES: 'true'
+          ALLOW_PROJECTS: 'true'
+          ALLOW_WIKI: 'true'
+          SQUASH_MERGE: 'true'
+          MERGE_COMMIT: 'true'
+          REBASE_MERGE: 'true'
+          DELETE_HEAD: 'false'
+          BRANCHES_PROTECTION_NAME: |
+            'main'
+          BRANCH_PROTECTION_REQUIRED_REVIEWERS: '1'
+          BRANCH_PROTECTION_DISMISS: 'true'
+          BRANCH_PROTECTION_CODE_OWNERS: 'true'
+          BRANCH_PROTECTION_ENFORCE_ADMINS: 'false'
+          TOKEN: ${{ secrets.ACTIONS }}
