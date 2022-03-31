@@ -16,7 +16,7 @@ jobs:
         with:
           REPOSITORIES: |
             mddeepu8/Adminasaselfservice
-          ALLOW_ISSUES: 'false'
+          ALLOW_ISSUES: 'true'
           ALLOW_PROJECTS: 'true'
           ALLOW_WIKI: 'true'
           SQUASH_MERGE: 'true'
@@ -29,4 +29,4 @@ jobs:
           BRANCH_PROTECTION_DISMISS: 'true'
           BRANCH_PROTECTION_CODE_OWNERS: 'true'
           BRANCH_PROTECTION_ENFORCE_ADMINS: 'false'
-          TOKEN: ${{ secrets.ACTIONS }}
+          TOKEN: ${{ secrets.TEST }}
