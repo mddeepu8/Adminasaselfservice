@@ -1,19 +1,17 @@
 #!/bin/bash
 
-
-
 prodStartTime="000000"
-prodEndTime="235900"
+prodEndTime="235959"
 
 
 
-echo $prodStartTime
-echo $prodEndTime
+echo $StartTime
+echo $EndTime
 echo $currentTime
 while true
 do
 currentTime=`date +"%H%M%S"`
-if [[ $currentTime -ge $prodStartTime && $currentTime -le $prodEndTime ]];
+if [[ $currentTime -ge $StartTime && $currentTime -le $EndTime ]];
 then
 your github logic should come here
 else
