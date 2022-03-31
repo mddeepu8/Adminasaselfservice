@@ -1,7 +1,7 @@
 #!/bin/bash
 
-prodStartTime="000000"
-prodEndTime="235959"
+StartTime="000000"
+EndTime="235959"
 
 
 
