@@ -16,7 +16,7 @@ jobs:
         with:
           REPOSITORIES: |
             mddeepu8/Adminasaselfservice
-          ALLOW_ISSUES: 'true'
+          ALLOW_ISSUES: 'false'
           ALLOW_PROJECTS: 'true'
           ALLOW_WIKI: 'true'
           SQUASH_MERGE: 'true'
