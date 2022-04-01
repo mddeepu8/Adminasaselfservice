@@ -6,11 +6,6 @@ on:
       - edited
   schedule:
     - cron: 0 0 * * *
-env:
-  Writer: mddeepu8
-  reponame: Adminasaselfservice
-  TOKEN: ${{ secrets.TEST }}
-
 jobs:
   repo_setup:
     runs-on: ubuntu-latest
@@ -35,12 +30,3 @@ jobs:
           BRANCH_PROTECTION_CODE_OWNERS: 'true'
           BRANCH_PROTECTION_ENFORCE_ADMINS: 'false'
           TOKEN: ${{ secrets.TEST }}
-      - name: Adding write Permissions 
-        if: contains(github.event.issue))
-        run: | 
-          curl \
-          -X PUT \
-          -H "Accept: application/vnd.github.v3+json" \
-          -H "Authorization: token ${{ env.TOKEN }}" \
-          https://api.github.com/repos/mddeepu8/Adminasaselfservice/teams/${{ env.Writer }}/repos/philips-internal/${{env.reponame}} \
-          -d '{"permission":"push"}'
