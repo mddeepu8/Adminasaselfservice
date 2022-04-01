@@ -1,9 +1,9 @@
-name: Repo Setup
-
-on:
-  push:
-    branches:
-      - main
+name: Repository
+on: 
+  issues:
+    types:
+      - opened
+      - edited
   schedule:
     - cron: 0 0 * * *
 env:
