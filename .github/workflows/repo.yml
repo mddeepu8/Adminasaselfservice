@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Repo Setup
+        if: |
+          github.event_name == 'issues' && github.event.action == 'opened,edited'
         uses: seblaporte/github-action-repo-settings-sync@v1.0.0
         with:
           REPOSITORIES: |
@@ -36,7 +38,7 @@ jobs:
           BRANCH_PROTECTION_ENFORCE_ADMINS: 'false'
           TOKEN: ${{ secrets.TEST }}
       - name: Adding write Permissions 
-        if: contains(github.event.issue.labels)
+        if: contains(github.event.issue.labels.*.name, 'policies'))
         run: | 
           curl \
           -X PUT \
