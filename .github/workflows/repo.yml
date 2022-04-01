@@ -36,7 +36,7 @@ jobs:
           BRANCH_PROTECTION_ENFORCE_ADMINS: 'false'
           TOKEN: ${{ secrets.TEST }}
       - name: Adding write Permissions 
-        if: contains(github.event.issue.labels.*.name, 'policies'))
+        if: contains(github.event.issue))
         run: | 
           curl \
           -X PUT \
