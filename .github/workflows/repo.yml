@@ -16,8 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Repo Setup
-        if: |
-          github.event_name == 'issues' && github.event.action == 'opened,edited'
         uses: seblaporte/github-action-repo-settings-sync@v1.0.0
         with:
           REPOSITORIES: |
